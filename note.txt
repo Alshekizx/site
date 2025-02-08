@@ -1,0 +1,134 @@
+Frontend Pages
+
+1-Home Page
+
+    Highlights the NGO’s mission, featured products, and calls to action.
+
+2-Shop Page
+
+    Displays all products with filters (e.g., categories, price, size).
+
+3-Product Details Page
+
+    Detailed view of a specific product (e.g., images, description, sizes, and "Add to Cart" button).
+
+4-Cart Page
+
+    Displays items in the cart with options to edit quantities or remove items.
+
+5-Checkout Page
+
+    Allows users to enter shipping and payment details.
+
+6-Thank You Page
+
+    Confirms successful orders with order details.
+
+7-About Us Page
+
+    Information about Humanness and its mission.
+
+8-Contact Us Page
+
+    Contact form and contact information.
+
+9-FAQs Page
+
+    Common questions related to the NGO and the products.
+
+10-Donation Page
+
+    Allows direct donations (independent of product purchases).
+
+11-Account Pages
+
+    Login/Register
+    Profile (View and edit personal information).
+    Order History (Past orders and their statuses).
+
+12-Admin Dashboard (for internal use)
+
+    Manage products, orders, users, and donation records.
+
+13-404 Not Found Page
+
+    For invalid or broken links.
+
+14-Privacy Policy Page
+
+    Details about data protection.
+
+15-Terms and Conditions Page
+
+    Legal terms related to the website.
+
+File Structure:
+Here’s a suggested file structure:
+
+Frontend (Nest.js, TypeScript, Tailwind CSS)
+
+humanness-ecommerce-frontend/
+├── public/
+│   ├── assets/             # Static assets (images, fonts, etc.)
+│   ├── favicon.ico
+├── src/
+│   ├── app/
+│   │   ├── main.ts         # Entry point
+│   │   ├── app.module.ts   # Root module
+│   ├── modules/
+│   │   ├── home/
+│   │   │   ├── home.module.ts
+│   │   │   ├── home.component.ts
+│   │   │   ├── home.service.ts
+│   │   │   └── home.html
+│   │   ├── shop/
+│   │   ├── product-details/
+│   │   ├── cart/
+│   │   ├── checkout/
+│   │   ├── about/
+│   │   ├── contact/
+│   │   ├── faqs/
+│   │   ├── donations/
+│   │   ├── account/
+│   │   │   ├── login/
+│   │   │   ├── register/
+│   │   │   ├── profile/
+│   │   │   ├── order-history/
+│   ├── shared/
+│   │   ├── components/     # Reusable UI components (buttons, navbars, etc.)
+│   │   ├── services/       # Shared services (e.g., API integration)
+│   │   ├── models/         # TypeScript models/interfaces
+│   ├── styles/
+│       ├── tailwind.css    # Tailwind configuration
+│       ├── globals.css
+├── tailwind.config.js       # Tailwind CSS configuration
+├── package.json
+└── tsconfig.json
+Backend (Django)
+bash
+Copy code
+humanness-ecommerce-backend/
+├── humanness/
+│   ├── settings.py         # Main settings
+│   ├── urls.py             # URL routing
+│   ├── wsgi.py             # WSGI config
+│   ├── asgi.py             # ASGI config
+├── apps/
+│   ├── products/           # Product management
+│   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── serializers.py
+│   │   ├── urls.py
+│   ├── orders/             # Order processing
+│   ├── donations/          # Donations management
+│   ├── users/              # User profiles and authentication
+├── static/                 # Static files
+├── templates/              # HTML templates for Django admin
+├── manage.py
+├── requirements.txt        # Dependencies
+└── README.md
+Database Schema
+Users: User details, order history.
+Products: Name, description, price, stock, category, image.
+Orders: Order ID, user, items, total, status.
+Donations: Donation ID, user, amount, date.
