@@ -1,0 +1,83 @@
+"use client";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+
+const LandingHeroSection = () => {
+  return (
+    <div className="flex flex-col gap-2">
+      {/* Main Hero Section */}
+      <div className="flex flex-col sm:flex-row h-fit  lg:h-[100vh] w-full">
+        {heroItems.map((item, index) => (
+          <div key={index} className="flex-1 overflow-hidden h-full">
+            <motion.div
+              className="relative flex-1 h-[100vh] group overflow-hidden cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+            >
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-center text-secondary bg-gradient-to-t from-black to-transparent w-full py-10 px-4 md:px-6">
+                <h1 className="text-h1 font-normal">{item.title}</h1>
+                <p className="text-[16px] font-normal">{item.subtitle}</p>
+                <Link href={} className="border-b-2 border-secondary mt-2 hover:text-accent transition-colors duration-300">
+                  Shop Now
+                </Link> 
+              </div>
+            </motion.div>
+          </div>
+        ))}
+      </div>
+
+      {/* Secondary Hero Section */}
+      <div className="flex flex-col sm:flex-row h-fit   lg:h-[70vh] gap-2 w-full">
+        {hero2ndItems.map((item, index) => (
+          <div key={index} className="flex-1 overflow-hidden h-full">
+            <motion.div
+              className="relative flex-1 h-[70vh] lg:h-full group overflow-hidden cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+            >
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute bottom-0 flex flex-col justify-start left-1/2 transform -translate-x-1/2 text-center text-secondary bg-gradient-to-t from-black to-transparent w-full px-6 py-10">
+                <h1 className="text-h4 lg:text-h3 text-start font-normal">{item.title}</h1>
+                <Link href={} className=" text-body border-b-2 border-secondary  hover:text-accent transition-colors duration-300 w-fit">
+                  Shop Now
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Hero Section Items
+const heroItems = [
+  {
+    title: "Summer 25 VIVA",
+    subtitle: "Bold Bright Unbound",
+    image: "/images/maleHoodie.jpg",
+  },
+  {
+    title: "Miel Latest",
+    subtitle: "Volume II",
+    image: "/images/Tshirt.jpg",
+  },
+];
+
+const hero2ndItems = [
+  { title: "Dresses", image: "/images/maleHoodie.jpg" },
+  { title: "Denim", image: "/images/Tshirt.jpg" },
+  { title: "Tops", image: "/images/Tshirt.jpg" },
+];
+
+export default LandingHeroSection;

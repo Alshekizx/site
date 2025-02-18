@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-primary: #333333; /* Dark Gray */
+  --color-secondary: #F8F8F8; /* Off White */
+  --color-accent: #FF0000; /* Red */
+
+  --font-h1: 32px;
+  --font-h2: 28px;
+  --font-h3: 24px;
+  --font-h4: 20px;
+  --font-h5: 18px;
+  --font-h6: 16px;
+  --font-body: 14px;
+  --font-small: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+h1 {
+  @apply text-[32px] font-normal;
+}
+
+p {
+  @apply text-[16px] font-normal;
+}
+
+.button {
+  border-bottom-width: 2px;
+  border-bottom-color: var(--color-secondary);
+  font-size:var(--font-h6) ;
+  font-weight: lighter;
+  
+}
+
+.buttonSellect {
+  border-bottom-width: 2px;
+  border-bottom-color: var(--color-primary);
+  font-size:var(--font-h6) ;
+  font-weight: lighter;
+}
+
+/* global.css or styles.css */
+::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
