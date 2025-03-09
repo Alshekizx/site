@@ -2,15 +2,15 @@
 import { motion } from "framer-motion";
 
 const links: string[] = [
-  "New Collections | Humanness Program",
-  "Free Delivery Over $300",
-  "Duties and Taxes at Checkout",
-  "Just Landed | Humanness Latest",
+  "Business Management Systems Development",
+  "Custom Web & Mobile Applications",
+  "Innovative Fintech Solutions",
+  "Tailored Digital Experiences for Your Business",
 ];
 
 const TopScroller: React.FC = () => {
   return (
-    <div className="w-full bg-gray-900 text-white overflow-hidden py-2">
+    <div className="w-full bg-primary-500 text-white overflow-hidden py-2">
       <motion.div
         className="flex space-x-10 whitespace-nowrap"
         animate={{ x: [0, -1000] }}

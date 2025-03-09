@@ -27,7 +27,7 @@ export interface ClothCardProps {
       image: "/images/maleHoodie.jpg",
       colors: ["#A52A2A", "#FFD700", "#000000"],
       link: "/shop/summer-25-viva",
-      isNew: true,
+      isNew: false,
       category: "Hoodies"
     },
     {
@@ -36,7 +36,7 @@ export interface ClothCardProps {
       image: "/images/Tshirt.jpg",
       colors: ["#A52A2A", "#FFD700", "#000000"],
       link: "/shop/miel-latest",
-      isNew: true,
+      isNew: false,
       category: "Tops"
     },
     {
@@ -60,6 +60,141 @@ export interface ClothCardProps {
     {
       name: "Shirt",
       price: "$59.99",
+      image: "/images/Tshirt.jpg",
+      colors: ["#A52A2A", "#FFD700", "#000000"],
+      link: "/shop/miel-latest",
+      isNew: true,
+      category: "Accessories"
+    },
+    {
+      name: "Casual Hoodie",
+      price: "$49.99",
+      image: "/images/maleHoodie.jpg",
+      colors: ["#A52A2A", "#FFD700", "#000000"],
+      link: "/shop/summer-25-viva",
+      isNew: true,
+      category: "Hoodies"
+    },
+    {
+      name: "Denim Jacket",
+      price: "$79.99",
+      image: "/images/Tshirt.jpg",
+      colors: ["#A52A2A", "#FFD700", "#000000"],
+      link: "/shop/miel-latest",
+      isNew: false,
+      category: "Tops"
+    },
+    {
+      name: "Fine Hoodie",
+      price: "$69.99",
+      image: "/images/maleHoodie.jpg",
+      colors: ["#A52A2A", "#FFD700", "#000000"],
+      link: "/shop/summer-25-viva",
+      isNew: false,
+      category: "Bottoms"
+    },
+    {
+      name: "Denim Bottoms",
+      price: "$29.99",
+      image: "/images/Tshirt.jpg",
+      colors: ["#A52A2A", "#FFD700", "#000000"],
+      link: "/shop/miel-latest",
+      isNew: false,
+      category: "Bottoms"
+    },
+    {
+      name: "Shirt",
+      price: "$50.99",
+      image: "/images/Tshirt.jpg",
+      colors: ["#A52A2A", "#FFD700", "#000000"],
+      link: "/shop/miel-latest",
+      isNew: true,
+      category: "Accessories"
+    },
+    {
+      name: "Casual Hoodie",
+      price: "$79.99",
+      image: "/images/maleHoodie.jpg",
+      colors: ["#A52A2A", "#FFD700", "#000000"],
+      link: "/shop/summer-25-viva",
+      isNew: false,
+      category: "Hoodies"
+    },
+    {
+      name: "Denim Jacket",
+      price: "$69.99",
+      image: "/images/Tshirt.jpg",
+      colors: ["#A52A2A", "#FFD700", "#000000"],
+      link: "/shop/miel-latest",
+      isNew: false,
+      category: "Tops"
+    },
+    {
+      name: "Fine Hoodie",
+      price: "$59.99",
+      image: "/images/maleHoodie.jpg",
+      colors: ["#A52A2A", "#FFD700", "#000000"],
+      link: "/shop/summer-25-viva",
+      isNew: true,
+      category: "Bottoms"
+    },
+    {
+      name: "Denim Bottoms",
+      price: "$39.99",
+      image: "/images/Tshirt.jpg",
+      colors: ["#A52A2A", "#FFD700", "#000000"],
+      link: "/shop/miel-latest",
+      isNew: false,
+      category: "Bottoms"
+    },
+    {
+      name: "Shirt",
+      price: "$69.99",
+      image: "/images/Tshirt.jpg",
+      colors: ["#A52A2A", "#FFD700", "#000000"],
+      link: "/shop/miel-latest",
+      isNew: true,
+      category: "Accessories"
+    },
+    {
+      name: "Casual Hoodie",
+      price: "$79.99",
+      image: "/images/maleHoodie.jpg",
+      colors: ["#A52A2A", "#FFD700", "#000000"],
+      link: "/shop/summer-25-viva",
+      isNew: false,
+      category: "Hoodies"
+    },
+    {
+      name: "Denim Jacket",
+      price: "$29.99",
+      image: "/images/Tshirt.jpg",
+      colors: ["#A52A2A", "#FFD700", "#000000"],
+      link: "/shop/miel-latest",
+      isNew: true,
+      category: "Tops"
+    },
+    {
+      name: "Fine Hoodie",
+      price: "$43.99",
+      image: "/images/maleHoodie.jpg",
+      colors: ["#A52A2A", "#FFD700", "#000000"],
+      link: "/shop/summer-25-viva",
+      isNew: true,
+      category: "Bottoms"
+    },
+    {
+      name: "Denim Bottoms",
+      price: "$55.99",
+      image: "/images/Tshirt.jpg",
+      colors: ["#A52A2A", "#FFD700", "#000000"],
+      link: "/shop/miel-latest",
+      isNew: false,
+      category: "Bottoms"
+    },
+    {
+      name: "Shirt",
+      price: "$56.99",
       image: "/images/Tshirt.jpg",
       colors: ["#A52A2A", "#FFD700", "#000000"],
       link: "/shop/miel-latest",

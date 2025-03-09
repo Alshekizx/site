@@ -1,28 +1,41 @@
-import HeroItem from "@/app/component/cards/heroItems";
-import CategoryCard from "@/app/component/cards/categoryCard";
-import { heroItemsProps, hero2ndItemsProps } from "@/page/api/data";
+"use client";
+import ThreeScene from "./threejs";
+import React from "react";
+import { motion } from "framer-motion";
 
-const LandingHeroSection = () => {
+const HeroSection = () => {
+
+  const links: string[] = [
+    "Welcome To 17K Technologies Limited",
+    "Welcome To 17K Technologies Limited",
+    "Welcome To 17K Technologies Limited",
+    "Welcome To 17K Technologies Limited",
+  ];
+  
+
   return (
-    <div className="flex flex-col gap-2">
-      {/* Main Hero Section */}
-      <div className="flex flex-col sm:flex-row h-fit lg:h-[100vh] w-full">
-        {heroItemsProps.map((item, index) => (
-          <HeroItem key={index} {...item} />
-        ))}
-      </div>
+    <section className="relative bg-primary-500 h-[94vh] overflow-hidden">
+      <ThreeScene />
 
-      {/* Secondary Hero Section */}
-      <div className="flex flex-col sm:flex-row h-fit lg:h-[90vh] gap-2 w-full">
-        {hero2ndItemsProps.map((item, index) => (
-          <CategoryCard key={index} {...item} />
+      <div className="w-full absolute bottom-0 bg-primary-800 text-white overflow-hidden py-4">
+      <motion.div
+        className="flex space-x-10 whitespace-nowrap"
+        animate={{ x: [0, -500] }}
+        transition={{ ease: "linear", duration: 20, repeat: Infinity }}
+      >
+        {[...links, ...links].map((text, index) => (
+          <span key={index} className="text-lg font-medium px-4">
+            {text}
+          </span>
         ))}
-      </div>
+      </motion.div>
     </div>
+
+      
+
+     
+    </section>
   );
 };
 
-// Hero Section Items
-
-
-export default LandingHeroSection;
+export default HeroSection;

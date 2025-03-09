@@ -1,19 +1,16 @@
 "use client";
 
-
-import TopHeader from "./topHeader";
+import React from "react";
 import TopScroller from "./topScroller";
-import NavComponent from "./navItem";
+import HeaderNav from "./headerSection";
 
 const Header = () => {
   
   return (
-    <div className="relative z-[100]">
-        <div className="bg-white relative z-[500]">
+    <div className="">
+      
         <TopScroller/>
-        <TopHeader/>
-        </div>
-        <NavComponent/>
+      <HeaderNav/>
    
     </div>
   );

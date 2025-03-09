@@ -50,10 +50,10 @@ const ClothCard: React.FC<ClothCardProps> = ({ name, price, image, colors, link,
 };
 
 const Cloth2ndCard: React.FC<ClothCardProps> = ({ name, price, image, colors, link, isNew = false, category }) => {
-  const [newCollection,] = useState(isNew);
+  const [newCollection] = useState(isNew);
 
   return (
-    <div className=" w-[250px] lg:w-full  h-[450px] md:h-[500px] lg:h-[550px] xl:h-[600px] overflow-hidden">
+    <div className="flex-grow min-w-[200px] max-w-[300px] sm:min-w-[220px] sm:max-w-[350px] md:min-w-[250px] md:max-w-[400px] lg:w-1/5 xl:w-1/6 h-[450px] sm:h-[500px] md:h-[550px] xl:h-[600px] overflow-hidden">
       {/* Image Section */}
       <div className="relative w-full h-[75%] sm:h-[80%]">
         <Image src={image} alt={name} fill className="object-cover" />
@@ -73,7 +73,7 @@ const Cloth2ndCard: React.FC<ClothCardProps> = ({ name, price, image, colors, li
           <p className="text-gray-600 text-xs sm:text-sm md:text-base">{price}</p>
           <p className="hidden text-xs text-gray-500 capitalize">{category}</p>
           {/* Colors */}
-          <div className="flex gap-1 ">
+          <div className="flex gap-1">
             {colors.map((color, index) => (
               <div
                 key={index}
