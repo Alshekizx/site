@@ -38,32 +38,38 @@ const BlogListPage = () => {
 
       {/* Blog Cards */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {blogPosts.slice(-6).reverse().map((post: BlogPost) => (
+        {blogPosts.slice(-6).reverse().map((post: BlogPost) => {
+          const previewText = post.contentSections
+            .flat() // Ensure it's a single array of text
+            .join(" ") // Convert to a single string
+            .split(" ") // Split into words
+            .slice(0, 20) // Limit to 20 words
+            .join(" ") + "..."; // Rejoin and add ellipsis
 
-          <div 
-            key={post.id} 
-            className="border h-full border-gray-300 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition bg-white"
-          >
-            <Image 
-              src={post.mainImage} 
-              alt={post.title} 
-              width={500} 
-              height={300} 
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <h2 className="text-xl font-semibold">{post.title}</h2>
-              <p className="text-gray-600">
-                {post.contentSections.slice(0, 2).join(" ") + "..."}
-              </p>
-              <Link href={`/views/blogList/${post.id}`}>
-                <span className="text-blue-600 hover:underline cursor-pointer mt-2 inline-block">
-                  Read More
-                </span>
-              </Link>
+          return (
+            <div 
+              key={post.id} 
+              className="border h-full border-gray-300 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition bg-white"
+            >
+              <Image 
+                src={post.mainImage} 
+                alt={post.title} 
+                width={500} 
+                height={300} 
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <h2 className="text-xl font-semibold">{post.title}</h2>
+                <p className="text-gray-600">{previewText}</p>
+                <Link href={`/views/blogList/${post.id}`}>
+                  <span className="text-blue-600 hover:underline cursor-pointer mt-2 inline-block">
+                    Read More
+                  </span>
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </main>
   );

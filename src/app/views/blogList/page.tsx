@@ -51,9 +51,7 @@ const FullBlogListPage = () => {
             />
             <div className="p-4">
               <h2 className="text-xl font-semibold">{post.title}</h2>
-              <p className="text-gray-600">
-                {post.contentSections.slice(0, 2).join(" ") + "..."}
-              </p>
+             
               <Link href={`/views/blogList/${post.id}`}>
                 <span className="text-blue-600 hover:underline cursor-pointer mt-2 inline-block">
                   Read More
