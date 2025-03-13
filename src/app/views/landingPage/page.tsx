@@ -7,6 +7,7 @@ import CallToAction from "./callToction";
 import WhatWeDo from "./whoWeAre";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import Header from "../../component/header/header";
+import BlogListPage from "./blogList";
 
 const LandingPage = () => {
   // Create refs for each section
@@ -14,10 +15,11 @@ const LandingPage = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
   const whatWeDoRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const blogListPageRef = useRef<HTMLDivElement>(null);
   const callToActionRef = useRef<HTMLDivElement>(null);
 
   
-  const sections = [heroRef, aboutRef, whatWeDoRef, servicesRef, callToActionRef];
+  const sections = [heroRef, aboutRef, whatWeDoRef, servicesRef,blogListPageRef, callToActionRef];
 
   // Keep track of current section index
   let currentSectionIndex = 0;
@@ -42,6 +44,8 @@ const LandingPage = () => {
       <div ref={aboutRef} className="NewSection"><AboutUs /></div>
       <div ref={whatWeDoRef} className="NewSection"><WhatWeDo/></div>
       <div ref={servicesRef} className="NewSection"><Services /></div>
+      <div ref={blogListPageRef} className="NewSection"><BlogListPage/></div>
+      
       <div ref={callToActionRef} className="NewSection"><CallToAction /></div>
 
 
