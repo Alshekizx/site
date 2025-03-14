@@ -3,11 +3,11 @@ import LaptopThree from './serviceThree';
 
 const WhatWeDo = () => {
   return (
-    <div className='px-4'>
+    <div className=''>
 
-      <section className="flex py-16 flex-col lg:flex-row h-fit lg:h-screen bg-gray-100 text-start">
+      <section className="flex py-16 flex-col lg:flex-row h-fit lg:h-screen px-4 bg-gray-100 text-start">
         
-        <div className='w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden'>
+        <div className='w-full hidden lg:w-1/2 lg:flex flex-col justify-center items-center overflow-hidden'>
           <LaptopThree />
         </div>
 

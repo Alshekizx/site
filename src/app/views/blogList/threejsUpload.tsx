@@ -21,8 +21,6 @@ const BlogModel = ({ modelPath, scale = 0.5 }: LaptopModelProps) => {
     if (!mountRef.current) return;
 
     const scene = new THREE.Scene();
-
-    // Ensure width & height are always defined
     const width = mountRef.current.clientWidth || window.innerWidth;
     const height = mountRef.current.clientHeight || window.innerHeight;
 
@@ -46,7 +44,12 @@ const BlogModel = ({ modelPath, scale = 0.5 }: LaptopModelProps) => {
     keyLight.position.set(0, 5, 6);
     keyLight.lookAt(0, 0, 0);
     scene.add(keyLight);
-    scene.add(new RectAreaLightHelper(keyLight));
+
+    // Development only: RectAreaLightHelper (remove in production)
+    if (process.env.NODE_ENV === "development") {
+      const rectHelper = new RectAreaLightHelper(keyLight);
+      scene.add(rectHelper);
+    }
 
     // OrbitControls Setup
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -60,19 +63,23 @@ const BlogModel = ({ modelPath, scale = 0.5 }: LaptopModelProps) => {
 
     // Load GLTF Model
     const gltfLoader = new GLTFLoader();
+    let modelUrl: string | null = null;
 
-    let modelUrl = "";
     if (modelPath instanceof File) {
-      modelUrl = URL.createObjectURL(modelPath); // Create object URL if it's a File object
+      modelUrl = URL.createObjectURL(modelPath);
     } else {
-      modelUrl = modelPath; // Assume it's already a valid URL or path
+      modelUrl = modelPath;
     }
 
     gltfLoader.load(
       modelUrl,
       (gltf) => {
+        if (modelRef.current) {
+          scene.remove(modelRef.current); // Remove old model before adding a new one
+        }
+
         modelRef.current = gltf.scene;
-        modelRef.current.scale.set(scale, scale, scale); // Apply scale dynamically
+        modelRef.current.scale.set(scale, scale, scale);
         modelRef.current.position.set(0, 0, 0);
         modelRef.current.rotation.set(0, 0.5, 0);
         scene.add(modelRef.current);
@@ -90,12 +97,35 @@ const BlogModel = ({ modelPath, scale = 0.5 }: LaptopModelProps) => {
 
     // Cleanup function
     return () => {
+      if (modelRef.current) {
+        modelRef.current.traverse((child) => {
+          if ((child as THREE.Mesh).isMesh) {
+            (child as THREE.Mesh).geometry.dispose();
+            if ((child as THREE.Mesh).material) {
+              if (Array.isArray((child as THREE.Mesh).material)) {
+                (child as THREE.Mesh).material.forEach((material) => material.dispose());
+              } else {
+                (child as THREE.Mesh).material.dispose();
+              }
+            }
+          }
+        });
+        scene.remove(modelRef.current);
+      }
+
+      if (rendererRef.current) {
+        rendererRef.current.dispose();
+      }
+
+      if (modelPath instanceof File && modelUrl) {
+        URL.revokeObjectURL(modelUrl);
+      }
+
       if (mount && renderer) {
         mount.removeChild(renderer.domElement);
-        renderer.dispose();
       }
     };
-  }, [modelPath, scale]); // Re-run effect if scale or modelPath changes
+  }, [modelPath, scale]);
 
   return <div ref={mountRef} style={{ width: "100%", height: "100%" }} />;
 };

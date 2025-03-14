@@ -5,20 +5,22 @@ const AboutUs = () => {
   return (
     <div className=''>
 
-      <section className="flex flex-col lg:flex-row h-fit lg:h-screen bg-gray-100 text-start">
+      <section className="flex flex-col lg:flex-row h-fit items-center lg:h-screen bg-gray-100 text-start">
         
-        <div className='py-16 px-4 text-start w-full lg:w-1/2'>
-          <h2 className="text-4xl font-bold text-primary-700">Custom Mobile & Web Solutions</h2>
+        <div className='py-16 px-4 text-start  w-full lg:w-1/2'>
+          <h2 className="text-4xl font-bold text-primary-700">Helping Businesses Scale</h2>
           <p className="mt-4 text-lg text-text-700 max-w-3xl">
-            We specialize in designing and developing custom mobile and web applications tailored to your needs. 
-            Our solutions are crafted with precision, ensuring seamless performance, intuitive user experiences, 
-            and scalable architecture.
+            I help businesses scale by building custom mobile and web application solutions 
+            that address their specific challenges and drive growth. My goal is to create digital 
+            products that streamline operations, enhance customer engagement, and boost business 
+            efficiency.
           </p>
           <div className="mt-8 text-lg text-text-700 max-w-2xl">
             <p>
-              Our team of developers and designers collaborates closely to bring your ideas to life. Whether it’s 
-              a startup or an enterprise-level solution, we leverage modern technologies to build high-quality, 
-              efficient, and innovative digital products.
+              Every business has unique needs, and I work closely with clients to develop tailored 
+              solutions that solve real problems. By leveraging modern technologies and best 
+              practices, I ensure that the apps I build are intuitive, scalable, and optimized 
+              for success.
             </p>
           </div>
         </div>
