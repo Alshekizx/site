@@ -42,7 +42,10 @@ const UploadPage = () => {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    accept: [".glb", ".gltf"] as const,
+    accept: {
+      "model/gltf-binary": [".glb"],
+      "model/gltf+json": [".gltf"],
+    },
     multiple: false,
   });
 
