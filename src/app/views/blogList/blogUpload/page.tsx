@@ -69,7 +69,7 @@ const UploadPage = () => {
     return url;
   };
 
-  const saveBlogPostToFirestore = async (blogData: any) => {
+  const saveBlogPostToFirestore = async (blogData: unknown) => {
     try {
       const docRef = await addDoc(collection(db, "blogPosts"), blogData);
       return docRef.id;
