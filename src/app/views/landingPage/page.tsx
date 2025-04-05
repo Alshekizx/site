@@ -51,16 +51,16 @@ const LandingPage = () => {
 
 
       {/* Scroll Buttons */}
-      <div className="fixed m-4 bottom-0 right-0 flex flex-col opacity-20 space-y-2">
+      <div className="fixed m-4 bottom-0 right-0 flex flex-col opacity-80 space-y-2">
         <button
           onClick={scrollToPrevSection}
-          className="p-2 rounded-lg bg-secondary-500 flex items-center  justify-center w-12 h-12"
+          className="p-2 rounded-lg bg-secondary-500  hover:bg-primary-500 flex items-center  justify-center w-12 h-12"
         >
           <ChevronUpIcon className="w-6 h-6 text-white" />
         </button>
         <button
           onClick={scrollToNextSection}
-          className="p-2 rounded-lg bg-secondary-500 flex items-center justify-center w-12 h-12"
+          className="p-2 rounded-lg bg-secondary-500 hover:bg-primary-500  flex items-center justify-center w-12 h-12"
         >
           <ChevronDownIcon className="w-6 h-6 text-white" />
         </button>

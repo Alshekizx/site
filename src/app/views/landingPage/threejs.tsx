@@ -16,6 +16,7 @@ const ThreeScene = () => {
     const modelRef = useRef<THREE.Object3D | null>(null);
     const raycaster = useRef(new THREE.Raycaster());
     const mouse = useRef(new THREE.Vector2());
+    
 
     useEffect(() => {
         const mountElement = mountRef.current;
@@ -27,7 +28,9 @@ const ThreeScene = () => {
         const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.shadowMap.enabled = true;
-        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+       
+        renderer.shadowMap.type = THREE.BasicShadowMap;
+       
         rendererRef.current = renderer;
         mountElement.appendChild(renderer.domElement);
 
@@ -38,6 +41,7 @@ const ThreeScene = () => {
         const keyLight = new THREE.RectAreaLight(0xffffff, 4, 5, 5);
         keyLight.position.set(0, 5, 6);
         keyLight.lookAt(0, 0, 0);
+        keyLight.intensity = 2;
         scene.add(keyLight);
         scene.add(new RectAreaLightHelper(keyLight));
 
@@ -51,11 +55,13 @@ const ThreeScene = () => {
         fillLight.position.set(3, 4, 5);
         fillLight.lookAt(0, 0, 0);
         scene.add(fillLight);
+        fillLight.intensity = 3;
         scene.add(new RectAreaLightHelper(fillLight));
 
         const rimLight = new THREE.DirectionalLight(0xffffff, 2);
         rimLight.position.set(2, 4, 3);
         rimLight.lookAt(0, 0, 0);
+        rimLight.intensity = 1;
         rimLight.castShadow = true;
         scene.add(rimLight);
 
@@ -64,9 +70,14 @@ const ThreeScene = () => {
         spotLight.angle = Math.PI / 4;
         spotLight.penumbra = 0.3;
         spotLight.castShadow = true;
+        spotLight.intensity = 2;
         spotLight.target.position.set(0, 0, 0);
         scene.add(spotLight);
         scene.add(spotLight.target);
+
+        spotLight.shadow.mapSize.width = 1024;
+        spotLight.shadow.mapSize.height = 1024;
+        spotLight.shadow.camera.far = 10;
 
         // Orbit Controls
         const controls = new OrbitControls(camera, renderer.domElement);
@@ -181,9 +192,18 @@ const ThreeScene = () => {
         return () => {
             window.removeEventListener("resize", handleResize);
             window.removeEventListener("click", handleClick);
-            mountElement.removeChild(renderer.domElement);
             controls.dispose();
             renderer.dispose();
+            scene.traverse((object) => {
+                if (object instanceof THREE.Mesh) {
+                    object.geometry.dispose();
+                    if (Array.isArray(object.material)) {
+                        object.material.forEach((m) => m.dispose());
+                    } else {
+                        object.material.dispose();
+                    }
+                }
+            });
         };
     }, [mouse, raycaster]);
 
